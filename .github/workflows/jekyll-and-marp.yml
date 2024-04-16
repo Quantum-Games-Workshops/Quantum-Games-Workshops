@@ -28,6 +28,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Marp Build 1
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: --html slides/1.marp -o slides/1.html
+        env:
+          MARP_USER: root:root
+      - name: Marp Build 2
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: --html slides/2.marp -o slides/2.html
+        env:
+          MARP_USER: root:root
+      - name: Marp Build 4
+        uses: docker://marpteam/marp-cli:latest
+        with:
+          args: --html slides/4.marp -o slides/4.html
+        env:
+          MARP_USER: root:root
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
