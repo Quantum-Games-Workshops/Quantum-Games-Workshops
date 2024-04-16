@@ -1,12 +1,6 @@
 # Quantum-games workshop
 
-Hier bouwen we aan een onderwijseenheid Quantum Games voor HBO ICT studenten.
-
-This is [bronnen](./Bronnen.md).
-
-Zie de [planning](./Planning.md).
-
-Bekijk de slides van de lessen opnieuw:
+Our schedule:
 
 - [Lesson 1](./slides/1.html)
   - 👨‍🏫 What are quantum computers?
@@ -19,11 +13,16 @@ Bekijk de slides van de lessen opnieuw:
   - 🔒 Quantum Key Distribution
   - ⏛ Quantum circuits
   - 🔍 Grover
-
-* Lesson 4: 👨‍💻 Quantum Algoritms
-* Lesson 5: 🎮 Games
-* Lesson 6: 🕹️ Quantum Games
-* 👩‍🏫 Project presentations
+- 🏠 Build your own quantum computer simulator?
+- Lesson 4: 👨‍💻 Quantum Algoritms
+- Lesson 5: 🎮 Games
+- Lesson 6: 🕹️ Quantum Games
+- 🏗️ At work: programming the games!
+- 👩‍🏫 Project presentations
+  - At TNO
+  - At Quantum Meets
+  - Etc.
+- Further development?
 
 ## Literature / education material
 
