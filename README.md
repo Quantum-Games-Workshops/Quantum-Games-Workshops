@@ -1,6 +1,16 @@
 # Quantum-games workshop
 
-Our schedule:
+This is our tentative schedule. 
+
+| Date | Lessons  | Topics             |          |
+|------|----------|--------------------|----------|
+| 2/4  | Lesson 1 | Intro              | 👥👥     |
+| 9/4 | TNO      | Hardware           | 👥👥👥👤 |
+| 16/4  | Lesson 3 | Intro              | 👥     |
+| 23/4 | Lesson 3 | Maths & BB84       | 👥👥👥👤 |
+| 30/4 | Lesson 4 | Quantum algorithms | 👥👥👥💻 |
+| 7/5  | Lesson 5 | Games              | 👥👥👤💻💻 |
+| 14/5 | Lesson 6 | Quantum games      | 👥👥👥💻 |
 
 - [Lesson 1](./slides/1.html)
   - 👨‍🏫 What are quantum computers?
