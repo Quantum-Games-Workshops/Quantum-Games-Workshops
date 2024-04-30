@@ -60,14 +60,17 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
 
 ## Today
 
-* 🔁 herhaling: quantum teleportation
-* 🔁 herhaling: quantum key distribution
-* 🔁 herhaling: Grover's algorithm
-* Deutsch-Jozsa algorithm
-* Simon's algorithm
-* Shor's algorithm
-* Quantum neural networks
-* Quantum error correction
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ Quantum teleportation
+  * 🤯 Deutsch-Jozsa algorithm
+  * 🤯 Simon's algorithm
+  * 🔓 Shor's algorithm
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
 * 🏋️‍♂️ Exercise
 
 ---
@@ -75,6 +78,46 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
 ## Quantum simulator assignment
 
 👀 Who tried? 👀
+
+---
+
+## Today
+
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ Quantum teleportation
+  * 🤯 Deutsch-Jozsa algorithm
+  * 🤯 Simon's algorithm
+  * 🔓 Shor's algorithm
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
+* 🏋️‍♂️ Exercise
+
+---
+
+### 🕳️ Quantum teleportation
+
+![width:800](./teleportation.svg)
+
+---
+
+## Today
+
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ ~Quantum teleportation~
+  * 🤯 Deutsch-Jozsa algorithm
+  * 🤯 Simon's algorithm
+  * 🔓 Shor's algorithm
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
+* 🏋️‍♂️ Exercise
 
 ---
 
@@ -173,16 +216,19 @@ public static boolean isConstant() {
 
 ---
 
-## Vandaag
+## Today
 
-* ~~🔁 herhaling: quantum teleportation~~
-* ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algorithm~~
-* ~~Deutsch-Jozsa algorithm~~
-* Simon's algorithm
-* Shor's algorithm
-* Quantum neural networks
-* Quantum error correction
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ ~Quantum teleportation~
+  * 🤯 ~Deutsch-Jozsa algorithm~
+  * 🤯 Simon's algorithm
+  * 🔓 Shor's algorithm
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
 * 🏋️‍♂️ Exercise
 
 ---
@@ -225,17 +271,21 @@ Two steps:
 
 ---
 
-## Vandaag
+## Today
 
-* ~~🔁 herhaling: quantum teleportation~~
-* ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algorithm~~
-* ~~Deutsch-Jozsa algorithm~~
-* ~~Simon's algorithm~~
-* Shor's algorithm
-* Quantum neural networks
-* Quantum error correction
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ ~Quantum teleportation~
+  * 🤯 ~Deutsch-Jozsa algorithm~
+  * 🤯 ~Simon's algorithm~
+  * 🔓 Shor's algorithm
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
 * 🏋️‍♂️ Exercise
+
 ---
 
 ### Shor's algorithm
@@ -330,16 +380,20 @@ Very difficult, but a view things can be noticed:
 
 ---
 
-## Vandaag
+## Today
 
-* ~~🔁 herhaling: quantum teleportation~~
-* ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algorithm~~
-* ~~Deutsch-Jozsa algorithm~~
-* ~~Simon's algorithm~~
-* ~~Shor's algorithm~~
-* Quantum neural networks
-* Quantum error correction
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 New algorithms: 
+  * 🕳️ ~Quantum teleportation~
+  * 🤯 ~Deutsch-Jozsa algorithm~
+  * 🤯 ~Simon's algorithm~
+  * 🔓 ~Shor's algorithm~
+  * 🧠 Quantum neural networks
+* 🩹 Quantum error correction
+* 🏋️‍♂️ Exercise
 
 ---
 
@@ -352,16 +406,20 @@ Very difficult, but a view things can be noticed:
 
 ---
 
-## Vandaag
+## Today
 
-* ~~🔁 herhaling: quantum teleportation~~
-* ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algorithm~~
-* ~~Deutsch-Jozsa algorithm~~
-* ~~Simon's algorithm~~
-* ~~Shor's algorithm~~
-* ~~Quantum neural networks~~
-* Quantum error correction
+* 🔁 ~Recap~:
+  * 🔍 ~Quantum key distribution~
+  * 🔑 ~Grover's algorithm~
+* 🏋️‍♂️ ~Quantum simulator in C#~
+* 💡 ~New algorithms:~ 
+  * 🕳️ ~Quantum teleportation~
+  * 🤯 ~Deutsch-Jozsa algorithm~
+  * 🤯 ~Simon's algorithm~
+  * 🔓 ~Shor's algorithm~
+  * 🧠 ~Quantum neural networks~
+* 🩹 Quantum error correction
+* 🏋️‍♂️ Exercise
 
 ---
 
