@@ -34,6 +34,11 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
 ---
 
 ## Overview meetings
+<style scoped>
+  li {
+    font-size: 24px;
+  }
+</style>
 - [Lesson 1](./slides/1.html)
   - 👨‍🏫 What are quantum computers?
   - 🎯 Where are we going?
@@ -45,15 +50,11 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
   - 🔒 Quantum Key Distribution
   - ⏛ Quantum circuits
   - 🔍 Grover
-- 🏠 Build your own quantum computer simulator?
 - [Lesson 4](./slides/4.html): 👨‍💻 Quantum Algoritms
 - Lesson 5: 🎮 Games
 - Lesson 6: 🕹️ Quantum Games
 - 🏗️ At work: programming the games!
-- 👩‍🏫 Project presentations
-  - At TNO
-  - At Quantum Meets
-  - Etc.
+- 👩‍🏫 Project presentations (TNO, Quantum Meets, ...)
 - Further development?
 
 ---
