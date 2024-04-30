@@ -11,6 +11,7 @@ This is our tentative schedule.
 | 30/4 | Lesson 4 | Quantum algorithms | 👥👥👥💻 |
 | 7/5  | Lesson 5 | Games              | 👥👥👤💻💻 |
 | 14/5 | Lesson 6 | Quantum games      | 👥👥👥💻 |
+| 21/5 | TNO      | Project            | 👥👥👥👤 |
 
 - [Lesson 1](./slides/1.html)
   - 👨‍🏫 What are quantum computers?
@@ -24,7 +25,7 @@ This is our tentative schedule.
   - ⏛ Quantum circuits
   - 🔍 Grover
 - 🏠 Build your own quantum computer simulator?
-- Lesson 4: 👨‍💻 Quantum Algoritms
+- [Lesson 4](./slides/4.html): 👨‍💻 Quantum Algoritms
 - Lesson 5: 🎮 Games
 - Lesson 6: 🕹️ Quantum Games
 - 🏗️ At work: programming the games!
@@ -40,5 +41,4 @@ On [this page](./Bronnen.md) we collect some good resources on learning quantum 
 
 ## Old material
 
-- [Lesson 4](./slides/4.html)
 - [Projecten TNO](./Projecten.md)

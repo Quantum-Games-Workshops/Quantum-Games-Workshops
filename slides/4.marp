@@ -29,54 +29,69 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
     opacity: 1;
 }
 </style>
-# Les 4
+# Lesson 4
 
 ---
 
-## Overzicht bijeenkomsten
-* ~~Les 1: 🤝 Introductie~~
-* ~~🏖️ Roostervrije week~~
-* ~~Les 2: 🔢 Wiskunde/Natuurkunde (en gastles TNO)~~
-* ~~Les 3: 📝 Quantum Computing~~
-* Les 4: 👨‍💻 Quantum Algoritmen
-* Les 5: 👩‍🏫 Project presentaties
+## Overview meetings
+- [Lesson 1](./slides/1.html)
+  - 👨‍🏫 What are quantum computers?
+  - 🎯 Where are we going?
+  - 🔍 Play as a learning mechanism
+  - 🎲 Play with Quantum Inspire be inspired
+- Guest lecture TNO: [Lesson 2](./slides/2a.pdf) en [meer](./slides/2b.pdf)
+- [Lesson 3](./slides/2.html)
+  - 🔢 Mathematical formalism
+  - 🔒 Quantum Key Distribution
+  - ⏛ Quantum circuits
+  - 🔍 Grover
+- 🏠 Build your own quantum computer simulator?
+- [Lesson 4](./slides/4.html): 👨‍💻 Quantum Algoritms
+- Lesson 5: 🎮 Games
+- Lesson 6: 🕹️ Quantum Games
+- 🏗️ At work: programming the games!
+- 👩‍🏫 Project presentations
+  - At TNO
+  - At Quantum Meets
+  - Etc.
+- Further development?
 
 ---
 
-## Vandaag
+## Today
 
-* 🔁 herhaling: quantum teleportatie
+* 🔁 herhaling: quantum teleportation
 * 🔁 herhaling: quantum key distribution
-* 🔁 herhaling: Grover's algoritme
-* Deutsch-Jozsa algoritme
-* Simon's algoritme
-* Shor's algoritme
-* Quantum neurale netwerken
+* 🔁 herhaling: Grover's algorithm
+* Deutsch-Jozsa algorithm
+* Simon's algorithm
+* Shor's algorithm
+* Quantum neural networks
 * Quantum error correction
-* 🏋️‍♂️ Oefening
+* 🏋️‍♂️ Exercise
 
 ---
 
-## Quantum simulator opdracht
+## Quantum simulator assignment
 
-👀 Gelukt? 👀
-
----
-
-## Deutsch-Jozsa algoritme
-
-* 💪 Het eerste bewijs van een quantum-voordeel. 
-  * Shor's algoritme is dat nog niet 100% zeker. 
-* Heeft (nog) niet veel toepassingen. 
-* Probleem: 
-  * Situatie: $f$ mapt $n$ bits naar 1 bit en is
-    * Gebalanceerd (even vaak 0 als 1), of
-    * Constant (altijd 0 of altijd 1)
-  * Vraag: is $f$ gebalanceerd of constant?
+👀 Who tried? 👀
 
 ---
 
-### Voorbeeld gebalanceerde functie ⚖️
+## Deutsch-Jozsa algorithm
+
+* 💪 First proof of quantum advantage. 
+  * Shor's algorithm possibly proofs that too. 
+* Not have a lot of applications (yet). 
+* Problem: 
+  * Situation: $f$ mapt $n$ bits to 1 bit and is
+    * Balanced (equally often 0 and 1), or
+    * Constant (always 0 or always 1)
+  * Question: is $f$ balanced or constant?
+
+---
+
+### Example balanced function ⚖️
 
  Input-bit 1  | Input-bit 2   | Output-bit   
 -------|------|------
@@ -87,7 +102,7 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
 
 ---
 
-### Het probleem
+### The problem
 
  Input-bit 1  | Input-bit 2   | Output-bit   
 -------|------|------
@@ -98,22 +113,22 @@ section ul li[data-bespoke-marp-fragment=inactive] ul li[data-bespoke-marp-fragm
 
 ---
 
-### Oplossing klassiek 🏛️
+### Solution classical 🏛️
 ```java
 public static int n = 9;
 public static boolean f(boolean input[]) { return input[0]; }
 public static boolean isConstant() {
-  boolean eerste = true;
-  boolean vorige = false;
+  boolean first = true;
+  boolean last = false;
   boolean[] booleans = new boolean[] { false, true };
   for (boolean i1: booleans)
     for (boolean i2: booleans)
              ⋮      ⋮      ⋮
         for (boolean i9: booleans) {
-          boolean waarde = f(new boolean[] { i1, i2, ⋯, i9 });
-          if (eerste) eerste = false;
-          else if (waarde != vorige) return false;
-          vorige = waarde;
+          boolean value = f(new boolean[] { i1, i2, ⋯, i9 });
+          if (first) first = false;
+          else if (value != last) return false;
+          last = value;
         }
   return true;
 }
@@ -121,66 +136,65 @@ public static boolean isConstant() {
 
 ---
 
-### Oplossing klassiek 🏛️: performance ⏱️
+### Solution classical 🏛️: performance ⏱️
 * worst-case $\mathcal{O}(2^{n-1}+1)$
-  * 👎 een "heleboel keren" $f$ aanroepen
-* kans dat $f$ constant is: $1-\frac{1}{2^{k-1}}$
+  * 👎 "many times" calling $f$
+* probability $f$ is constant: $1-\frac{1}{2^{k-1}}$
 
 ---
 
-### De oplossing quantum
-* ⏱️ efficiëntie: 1 aanroep van $f$
-* is het resultaat helemaal $0$ dan $f$ constant
-  * anders is $f$ gebalanceerd
+### The solution quantum
+* ⏱️ efficiency: a single call to $f$
+* if result is $0$ then $f$ is constant
+  * else $f$ is balanced
 
 ![width:800](./dj.png)
 
 ---
 
-### De oplossing quantum: de check
-* Na $H^{\otimes n}$: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} |x\rangle (|0\rangle - |1\rangle )$
-* Na Oracle: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} |x\rangle (|0\oplus f(x)\rangle - |1\oplus f(x)\rangle )$
-* Oftewel: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} (-1)^{f(x)} |x\rangle (|0\rangle - |1\rangle )$.
+### The solution quantum: the check
+* After $H^{\otimes n}$: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} |x\rangle (|0\rangle - |1\rangle )$
+* After Oracle: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} |x\rangle (|0\oplus f(x)\rangle - |1\oplus f(x)\rangle )$
+* In other words: $\frac{1}{\sqrt{2^{n+1}}}\sum_{x=0}^{2^n-1} (-1)^{f(x)} |x\rangle (|0\rangle - |1\rangle )$.
 * Discard garbage: $\frac{1}{\sqrt{2^{n}}}\sum_{x=0}^{2^n-1} (-1)^{f(x)} |x\rangle$.
 * $H^{\otimes n} |k\rangle = \frac{1}{\sqrt{2^n}} \sum_{j = 0}^{2^n - 1} (-1)^{k \cdot j} |j\rangle$
-* Na $H^{\otimes n}$: $\frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1}(-1)^{f(x)} \left[ \frac{1}{\sqrt{2^n}} \sum_{y=0}^{2^n-1}(-1)^{x\cdot y}  |y\rangle \right]$
-* Oftewel: $\sum_{y=0}^{2^n-1} \left[ \frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)} (-1)^{x\cdot y}\right] |y\rangle$
-* Voor $y=0$ staat er $\left|\frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)}\right|^2$
+* After $H^{\otimes n}$: $\frac{1}{\sqrt{2^n}}\sum_{x=0}^{2^n-1}(-1)^{f(x)} \left[ \frac{1}{\sqrt{2^n}} \sum_{y=0}^{2^n-1}(-1)^{x\cdot y}  |y\rangle \right]$
+* In other words: $\sum_{y=0}^{2^n-1} \left[ \frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)} (-1)^{x\cdot y}\right] |y\rangle$
+* For $y=0$ there is $\left|\frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)}\right|^2$
 
 ---
 
-### De oplossing quantum: interferentie
+### The solution quantum: interference
 
-* Kans op $\ket{0}^{\otimes n}$ is $\left|\frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)}\right|^2$
-* Als $f$ constant, dan *constructieve interferentie*. 
-* Als *f* gebalanceerd, dan *destructieve interferentie*. 
-* Als $\ket{0}^{\otimes n}$ gemeten, dan (en alléén dan) is $f$ constant. 
+* Probability on $\ket{0}^{\otimes n}$ is $\left|\frac{1}{2^n} \sum_{x=0}^{2^n-1}(-1)^{f(x)}\right|^2$
+* If $f$ constant, then *constructive interference*. 
+* If *f* balanced, then *destructive interference*. 
+* If $\ket{0}^{\otimes n}$ measured, then (and only then) is $f$ constant. 
 
 ---
 
 ## Vandaag
 
-* ~~🔁 herhaling: quantum teleportatie~~
+* ~~🔁 herhaling: quantum teleportation~~
 * ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algoritme~~
-* ~~Deutsch-Jozsa algoritme~~
-* Simon's algoritme
-* Shor's algoritme
-* Quantum neurale netwerken
+* ~~🔁 herhaling: Grover's algorithm~~
+* ~~Deutsch-Jozsa algorithm~~
+* Simon's algorithm
+* Shor's algorithm
+* Quantum neural networks
 * Quantum error correction
-* 🏋️‍♂️ Oefening
+* 🏋️‍♂️ Exercise
 
 ---
 
-### Simon's algoritme
-* Geen hogere wiskunde, wel flink puzzelen
-* Probleem:
-  * Situatie: er is een geheime $n$ bit string $s$ zodat: $f(x)=f(y)$ als en alleen als $x\oplus y=s$. 
-  * Vraag: wat is $s$?
+### Simon's algorithm
+* Problem:
+  * Situation: there is a secret $n$ bit string $s$ so that: $f(x)=f(y)$ if and only if $x\oplus y=s$. 
+  * Question: what is $s$?
 
 ---
 
-### Simon's algoritme: voorbeeld
+### Simon's algorithm: example
 
 x | f(x)
 --|------
@@ -195,179 +209,179 @@ x | f(x)
 
 ---
 
-### Simon's algoritme: klassiek
+### Simon's algorithm: classical
 
-* zoek twee dezelfde uitkomsten
-* ongeveer $\sqrt{2^n}$ keer uitproberen
-  * dit is het [verjaardagenparadox](https://en.wikipedia.org/wiki/Birthday_problem) (belangrijk bij [hashen](https://justcryptography.com/the-birthday-paradox/))
+* search two equal outcomes
+* approximately $\sqrt{2^n}$ times trying
+  * this is the [birthday paradox](https://en.wikipedia.org/wiki/Birthday_problem) (important for [hashing](https://justcryptography.com/the-birthday-paradox/))
 
 ---
 
-### Simon's algoritme: quantum
+### Simon's algorithm: quantum
 
-Twee stappen: 
-1) ongeveer $\mathcal{O}(n)$ keer een quantum circuit, met één $f$
-2) klassiek: gaussian elimination
+Two steps: 
+1) approximately $\mathcal{O}(n)$ times a quantum circuit, with one $f$
+2) classical: gaussian elimination
 
 ---
 
 ## Vandaag
 
-* ~~🔁 herhaling: quantum teleportatie~~
+* ~~🔁 herhaling: quantum teleportation~~
 * ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algoritme~~
-* ~~Deutsch-Jozsa algoritme~~
-* ~~Simon's algoritme~~
-* Shor's algoritme
-* Quantum neurale netwerken
+* ~~🔁 herhaling: Grover's algorithm~~
+* ~~Deutsch-Jozsa algorithm~~
+* ~~Simon's algorithm~~
+* Shor's algorithm
+* Quantum neural networks
 * Quantum error correction
-* 🏋️‍♂️ Oefening
+* 🏋️‍♂️ Exercise
 ---
 
-### Shor's algoritme
+### Shor's algorithm
 
-* RSA breken
-  * (voor AES hebben we met Grover $\sqrt{}$ winst)
-* Algoritme bestaat uit twee stukken
-  * Klassiek: Slimme truuk
+* break RSA
+  * (for AES we have $\sqrt{}$ gain using Grover)
+* Algorithm exists of two parts
+  * Classical: clever trick
   * Quantum: Fourier transform
 
 ---
 
 ### RSA
 
-* Private sleutel: twee priemgetallen $p$ en $q$.
-* Publieke sleutel: het product $pq=n$ en een $m$ zodanig dat $\gcd{((p-1)(q-1),m)}=1$.
-* Bob versleutelt $d$ door $e=d^m\bmod n$.
-* Alice kan makkelijk $d$ terugvinden. 
-* We breken RSA door priemfactorisatie slim te doen. 
+* Private key: two prime numbers $p$ and $q$.
+* Public key: the product $pq=n$ and an $m$ such that $\gcd{((p-1)(q-1),m)}=1$.
+* Bob versleutelt $d$ using $e=d^m\bmod n$.
+* Alice can easily find $d$ back. 
+* We will break RSA by doing priemfactorisation clever. 
 
 ---
 
-### Priemfactorisatie ➡️ periode zoeken
+### Priemfactorisation ➡️ find period
 
-* Kies een getal $a$ kleiner dan $n$
-* Bepaal $r$ zodanig dat $a^r=kn+1$ (quantum!)
-* Herstart als $r$ oneven is (kleine kans)
-* Rekenen om $p$ en $q$ te vinden: 
+* Choose a number $a$ smaller then $n$
+* Determine $r$ such that $a^r=kn+1$ (quantum!)
+* Restart if $r$ is odd (small probability)
+* Do maths to find $p$ and $q$: 
   * $a^r-1=kqp$
   * $(a^{r/2}-1)(a^{r/2}+1)=kqp$
-  * $p$ deelt $a^{r/2}-1$ en $q$ deelt $a^{r/2}+1$
-  * $p=\gcd{(a^{r/2}-1,n)}$ en $q=\gcd{(a^{r/2}+1,n)}$
+  * $p$ divides $a^{r/2}-1$ and $q$ divides $a^{r/2}+1$
+  * $p=\gcd{(a^{r/2}-1,n)}$ and $q=\gcd{(a^{r/2}+1,n)}$
 
 ---
 
-### Shor: het quantum deel
+### Shor: the quantum part
 
-* Maak (alweer) een mega-superpositie
-* Voer de quantum Fourier Transform uit
-  * Destructieve en constructieve interferentie zorgen dat de periode over blijft. 
-* Meet
+* Make (again) a mega-superposition
+* Execute the quantum Fourier Transform
+  * Destructive and constructive interference 
+* Measure
 
 ---
 
-### Fourier transformatie: toepassing
+### Fourier transformation: application
 
 * `.BMP` vs. `.JPEG`, `.WAV` vs `.MP3`
-* Welke informatie kunnen we weglaten?
-  * Een hap uit een foto? Niet handig...
-* Bekijk een foto niet als 
-  * stukjes *naast elkaar*: ![height:1em](./fourier1.svg)
-  * maar als stukjes *over elkaar heen*: ![height:1em](./fourier2.svg)
-* [2-dimensionaal](https://www.dspguide.com/graphics/F_27_10.gif) is ingewikkeld...
+* What information can we leave out?
+  * A part of the photo? Not really...
+* Do not view a photo as 
+  * parts *next to each other*: ![height:1em](./fourier1.svg)
+  * but as parts *on each other*: ![height:1em](./fourier2.svg)
+* [2-dimensional](https://www.dspguide.com/graphics/F_27_10.gif) is complicated...
 
 ---
 
-### Fourier transformatie: intuïtie
+### Fourier transform: intuition
 
 ![height:100%](./fourier2d.png)
 
 ---
 
-### Fourier transformatie: meer intuïtie
+### Fourier transform: more intuition
 
-Bekijk [Youtube](https://www.youtube.com/watch?v=mgXSevZmjPc). 
+See [Youtube](https://www.youtube.com/watch?v=mgXSevZmjPc). 
 
 ---
 
-### Complexe getallen
+### Complexe numbers
 
-* Twee representaties: 
+* Two representations: 
   * $x+yi$
-  * $r e^{i\phi}$ met radius $r$ en hoek $\phi$ in radialen
-    * $\phi$ zit tussen $0$ en $2\pi$
-* Rekenregels: 
+  * $r e^{i\phi}$ with radius $r$ and angle $\phi$ in radians
+    * $\phi$ between $0$ and $2\pi$
+* Rules: 
   * $x+yi$
-    * Optellen en aftrekken eenvoudig
-    * Bij vermenigvuldigen, onthoud $i^2=-1$
+    * Addition and substraction easy
+    * Multiplication, remember $i^2=-1$
   * $r e^{i\phi}$
-    * Vermenigvuldigen eenvoudig
-    * Optellen en aftrekken ingewikkeld
+    * Multiplication easy
+    * Addition and substraction difficult
 
 ---
 
-### Discrete Fourier transformatie
+### Discrete Fourier transform
 
 $$\sum\limits_{n=0}^{N-1}x_n\ket{n}\mapsto\sum\limits_{n=0}^{N-1}\left(\frac{1}{\sqrt{N}}\sum\limits_{m=0}^{N-1}x_m e^{2\pi\frac{nm}{N}}\right)\ket{n}$$
 
-Erg ingewikkeld, maar een paar dingen te zien: 
-* Linear en inverteerbaar, dus quantum operatie kan
-* Er worden een heleboel complexe getallen opgeteld. Is er mogelijk constructieve interferentie?
+Very difficult, but a view things can be noticed: 
+* Linear and invertible, so quantum operation is possible
+* A lot of complex numbers are being added. Is there possibly any constructive interference?
 
 ---
 
 ## Vandaag
 
-* ~~🔁 herhaling: quantum teleportatie~~
+* ~~🔁 herhaling: quantum teleportation~~
 * ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algoritme~~
-* ~~Deutsch-Jozsa algoritme~~
-* ~~Simon's algoritme~~
-* ~~Shor's algoritme~~
-* Quantum neurale netwerken
+* ~~🔁 herhaling: Grover's algorithm~~
+* ~~Deutsch-Jozsa algorithm~~
+* ~~Simon's algorithm~~
+* ~~Shor's algorithm~~
+* Quantum neural networks
 * Quantum error correction
 
 ---
 
-## Quantum Machine Learning Algoritmen
+## Quantum Machine Learning Algorithms
 
-* Allerlei toepassingen in *Machine Learning*
-* 🧠 *Neurale netwerken*: 
-  * Om efficiënt coëfficiënten te berekenen
-  * Om meer vrijheden te introduceren
+* Diverse applications in *Machine Learning*
+* 🧠 *Neural networks*: 
+  * To efficiently find coefficients
+  * To introduce more degrees of freedom
 
 ---
 
 ## Vandaag
 
-* ~~🔁 herhaling: quantum teleportatie~~
+* ~~🔁 herhaling: quantum teleportation~~
 * ~~🔁 herhaling: quantum key distribution~~
-* ~~🔁 herhaling: Grover's algoritme~~
-* ~~Deutsch-Jozsa algoritme~~
-* ~~Simon's algoritme~~
-* ~~Shor's algoritme~~
-* ~~Quantum neurale netwerken~~
+* ~~🔁 herhaling: Grover's algorithm~~
+* ~~Deutsch-Jozsa algorithm~~
+* ~~Simon's algorithm~~
+* ~~Shor's algorithm~~
+* ~~Quantum neural networks~~
 * Quantum error correction
 
 ---
 
 ## Quantum Error Correction
 
-* Er is veel *noise*
-* Logische qubits opslaan in meerdere fysieke qubits
-* Klassieke error correction wordt gebruikt in internet verkeer, CPU's, compressie, etc.
+* There is a lot of *noise*
+* Save logical qubits in multiple physical qubits
+* Classical error correction is used in internet traffic, CPU's, compression, etc.
 
 ---
 
-### Klassieke Error Correction
+### Classical Error Correction
 
-* een $[n,k]$ code encodes $k$ bits in $n$ bits
-* $n\times k$ *generator matrix* $G$ mapt van $x$ naar $y$: $y=Gx$
-* voorbeeld: repetition $[3,1]$ code $G=\left[\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right]$
-* *parity check matrix*: $n-k=2$ vectors orthogonaal op $G^T$. Voorbeeld: $H=\left[\begin{smallmatrix}1&1&0\\0&1&1\end{smallmatrix}\right]$
-* als $Hx=0$, dan $x=\left[\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right]$ of $x=\left[\begin{smallmatrix}0\\0\\0\end{smallmatrix}\right]$
-* wat gebeurt er bij een error? $y'=y+e$
-* gebruik *error syndromes* $He$ om fout te detecteren
+* a $[n,k]$ code encodes $k$ bits in $n$ bits
+* $n\times k$ *generator matrix* $G$ mapt from $x$ to $y$: $y=Gx$
+* example: repetition $[3,1]$ code $G=\left[\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right]$
+* *parity check matrix*: $n-k=2$ vectors orthogonal on $G^T$. Example: $H=\left[\begin{smallmatrix}1&1&0\\0&1&1\end{smallmatrix}\right]$
+* if $Hx=0$, then $x=\left[\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right]$ or $x=\left[\begin{smallmatrix}0\\0\\0\end{smallmatrix}\right]$
+* what happens at an error? $y'=y+e$
+* use *error syndromes* $He$ to find errors
 * *Hamming distance*
 
 ---
@@ -390,28 +404,26 @@ phaseflip:
 
 ---
 
-## 🏋️ Oefening
-* In groepjes van drie:
-  * Kies een quantum algoritme uit
-  * Bereid een presentatie voor
-  * Bespreek: 
-    * Toepassingen
-    * Implementatie problemen
-    * Klassieke alternatieven
-* Aan het eind van elke presentatie zijn er vragen. 
+## 🏋️ Exercise
+* In groups of two:
+  * Choose a quantum algorithm
+  * Investigate this specific algorithm
+  * Prepare a small presentation, including: 
+    * Applications
+    * Implementation challenges
+    * Classical alternatives
 
 ---
 
 ## Gezamelijke wrap-up
-* Wat hebben we geleerd?
-* Vragen bespreken
-* Wat staat ons te wachten?
+* What did we learn?
+* How will we continue?
 
 ---
 
 <!--
 color: black
 -->
-### Volgende week: TNO opdracht
+### Next week: Games!
 
 ![bg grayscale:1 blur:20px](https://cdn2.psychologytoday.com/assets/styles/manual_crop_1_91_1_1528x800/public/2020-08/shutterstock_1731284125_0.jpg?itok=89UrdUt_)
